@@ -1,30 +1,40 @@
-version: 2
+steps: &steps
+  steps:
+    - ansible/ansible-playbook:
+        reponame: ansible_joke-programs_cmatrix
 
-branches:
-  only:
-    - topic
+version: 2.1
+
+orbs:
+  ansible: orbss/ansible@0.0.4
 
 jobs:
-  build:
-    docker:
-      - image: tomonorimatsumura/centos7-ansible
-        environment:
-          LANG: ja_JP.UTF-8
-          LANGUAGE: ja_JP:ja
-          LC_ALL: ja_JP.UTF-8
-    steps:
+  ansible-yum:
+    executor:
+      name: ansible/ansible-yum
+    <<: *steps
+  ansible-stable:
+    executor:
+      name: ansible/ansible-stable
+    <<: *steps
+  ansible-devel:
+    executor:
+      name: ansible/ansible-devel
+    <<: *steps
 
-      - run:
-          name: Show Ansible version
-          command: ansible --version
-
-      - run:
-          name: Retrive playbook from GitHub
-          command: git clone https://github.com/TomonoriMatsumura/ansible_joke-programs_cmatrix
-
-      - run:
-          name: Excute Ansible Playbook
-          command: |
-            cd ansible_joke-programs_cmatrix
-            git checkout topic
-            ansible-playbook -i localhost install.yml
+workflows:
+  version: 2
+  excute-playbook:
+    jobs:
+      - ansible-yum:
+          filters:
+            branches:
+              only: topic
+      - ansible-stable:
+          filters:
+            branches:
+              only: topic
+      - ansible-devel:
+          filters:
+            branches:
+              only: topic

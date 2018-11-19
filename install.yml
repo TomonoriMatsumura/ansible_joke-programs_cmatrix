@@ -9,43 +9,43 @@
       yum:
         name: '@Development Tools'
         state: present
-    
+
     - name: Install libyaml with yum
       become: yes
       yum:
         name: libyaml-devel
         state: present
-    
+
     - name: Install ncurses-devel with yum
       become: yes
       yum:
         name: ncurses-devel
         state: present
-    
-    - name: download cmatrix install file
+
+    - name: Download cmatrix install file
       become: yes
       git:
-        repo: '{{ cmatrix_git_repo }}' 
+        repo: '{{ cmatrix_git_repo }}'
         dest: /tmp/cmatrix
         force: yes
-    
-    - name: Build cmatrix 1 / autoreconf -i 
+
+    - name: Build cmatrix 1 / autoreconf -i
       become: yes
-      command: autoreconf -i 
+      command: autoreconf -i
       args:
         chdir: /tmp/cmatrix
-    
+
     - name: Build cmatrix 2 / .configure
       become: yes
       command: ./configure
       args:
         chdir: /tmp/cmatrix
-    
+
     - name: Build cmatrix 3 / make
       become: yes
       make:
         chdir: /tmp/cmatrix
-    
+
     - name: Build cmatrix 4 / make install
       become: yes
       make:

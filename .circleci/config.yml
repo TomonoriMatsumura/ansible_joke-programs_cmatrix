@@ -6,11 +6,14 @@ steps: &steps
         reponame: ansible_joke-programs_cmatrix
     - ansible/ansible-playbook:
         reponame: ansible_joke-programs_cmatrix
+    - run:
+        name: Show CMatrix version
+        command: cmatrix -V
 
 version: 2.1
 
 orbs:
-  ansible: orbss/ansible@0.0.8
+  ansible: orbss/ansible@0.1.0
 
 jobs:
   ansible-yum:

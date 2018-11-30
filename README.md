@@ -23,6 +23,6 @@ ansible-playbook -i localhost install.yml
 
 ## CircleCI Test Coverage
 
-Test is executed on Docker container Centos7 latest Ansible installed wtih CircleCI: [tomonorimatsumura/centos7-ansible](https://hub.docker.com/r/tomonorimatsumura/centos7-ansible/)
+Test is executed on CircleCI with Docker container Centos7 latest Ansible installed: see Dockerfile [tomonorimatsumura/centos7-ansible](https://hub.docker.com/r/tomonorimatsumura/centos7-ansible/)
 
-[![CircleCI](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix/tree/topic.svg?style=svg)](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix/tree/topic)
+[![CircleCI](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix.svg?style=svg)](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix)

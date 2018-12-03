@@ -1,10 +1,8 @@
 steps: &steps
   steps:
     - checkout
-    - ansible/ansible-lint:
-        reponame: ansible_joke-programs_cmatrix
-    - ansible/ansible-playbook:
-        reponame: ansible_joke-programs_cmatrix
+    - ansible/ansible-lint
+    - ansible/ansible-playbook
     - run:
         name: Show CMatrix version
         command: cmatrix -V

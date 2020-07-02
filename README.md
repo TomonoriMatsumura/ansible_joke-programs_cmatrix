@@ -1,8 +1,13 @@
-# Install CMatrix on CentOS7 with Ansible
+[![](https://github.com/ansible-joke-programs/cmatrix/workflows/ansible-lint/badge.svg)](https://github.com/ansible-joke-programs/cmatrix/actions?query=workflow%3Aansible-lint)
+[![](https://github.com/ansible-joke-programs/cmatrix/workflows/molecule/badge.svg)](https://github.com/ansible-joke-programs/cmatrix/actions?query=workflow%3Amolecule)
+[![](https://github.com/ansible-joke-programs/cmatrix/workflows/trailing%20whitespace/badge.svg)](https://github.com/ansible-joke-programs/cmatrix/actions?query=workflow%3A%22trailing+whitespace%22)
+[![](https://github.com/ansible-joke-programs/cmatrix/workflows/yamllint/badge.svg)](https://github.com/ansible-joke-programs/cmatrix/actions?query=workflow%3Ayamllint)
 
-## Introduction
+# Ansible Playbook - CMatrix
 
-This program installs [CMatrix](https://github.com/abishekvashok/cmatrix) on CentOS7.
+## Description
+
+Installs [CMatrix](https://github.com/abishekvashok/cmatrix) for CentOS7/CentOS8.
 
 ## How To install
 
@@ -16,13 +21,8 @@ sudo yum -y install ansible
 2. Execute playbook as root
 
 ```
-git clone https://github.com/TomonoriMatsumura/ansible_joke-programs_cmatrix.git
-cd ansible_joke-programs_cmatrix
-ansible-playbook -i localhost install.yml
+git clone https://github.com/ansible-joke-programs/cmatrix.git
+cd cmatrix
+ansible-galaxy install -r roles/requirements.yml -p /roles/
+ansible-playbook -i localhost, -c local install.yml
 ```
-
-## CircleCI Test Coverage
-
-Test is executed on CircleCI with Docker container Centos7 latest Ansible installed: see Dockerfile [tomonorimatsumura/centos7-ansible](https://hub.docker.com/r/tomonorimatsumura/centos7-ansible/)
-
-[![CircleCI](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix.svg?style=svg)](https://circleci.com/gh/TomonoriMatsumura/ansible_joke-programs_cmatrix)

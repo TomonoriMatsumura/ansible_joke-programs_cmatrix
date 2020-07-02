@@ -1,0 +1,22 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Check whether CMatrix is installed
+      command: cmatrix -V
+      register: CMatrix_VERSION
+      changed_when: false
+
+    - name: Check OS version
+      command: cat /etc/redhat-release
+      register: OS_VERSION
+      changed_when: false
+
+    - name: Show Hugo version
+      debug:
+        var: CMatrix_VERSION
+
+    - name: Show OS version
+      debug:
+        var: OS_VERSION

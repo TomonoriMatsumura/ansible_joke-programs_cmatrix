@@ -20,6 +20,6 @@ sudo yum -y install ansible
 ```
 git clone https://github.com/ansible-joke-programs/cmatrix.git
 cd cmatrix
-ansible-galaxy install -r roles/requirements.yml -p /roles/
+ansible-galaxy install -r roles/requirements.yml
 ansible-playbook -i localhost, -c local install.yml
 ```

@@ -1,3 +1,7 @@
 ---
-- src: https://github.com/ansible-roles-matsumura/cmatrix.git
-  name: matsumura.cmatrix
+roles:
+  - name: cmatrix
+    src: https://github.com/ansible-roles-matsumura/cmatrix.git
+
+collections:
+  - name: community.general
